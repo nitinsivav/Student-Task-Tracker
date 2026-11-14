@@ -1,6 +1,7 @@
 import "../components/SignIn.js";
 import "../components/StudentSignIn.js";
 import "../components/TeacherSignIn.js";
+import "../components/StudentDashboard.js";
 
 const Router = {
     init: () => {
@@ -39,11 +40,20 @@ const Router = {
             Router.go(`/sign-in/${role}`);
         });
         break;
+
       case "/sign-in/teacher":
         pageEl = document.createElement("teacher-sign-in");
         break;
+
       case "/sign-in/student":
         pageEl = document.createElement("student-sign-in");
+
+        pageEl.addEventListener("auth-success", (event) => {
+            Router.go("/student/dashboard");
+        });
+        break;
+      case "/student/dashboard":
+        pageEl = document.createElement("student-dashboard");
         break;
 
       default:
