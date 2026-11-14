@@ -7,9 +7,40 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <main id="app">
     <p>Loading TaskTrack...</p>
   </main>
+
+  <template id="sign-in-template">
+  <section class="sign-in-page" aria-labelledby="sign-in-title">
+    <div class="sign-in-card">
+      <p class="brand-name">TaskTrack</p>
+      <h1 id="sign-in-title">Welcome back</h1>
+      <p class="sign-in-description">
+        Choose how you want to sign in.
+      </p>
+
+      <div class="login-options">
+        <button class="login-option" type="button" data-role="student">
+          <span class="login-option-icon" aria-hidden="true">🎓</span>
+          <span>
+            <strong>Student Login</strong>
+            <small>View and track your assigned tasks</small>
+          </span>
+        </button>
+
+        <button class="login-option" type="button" data-role="teacher">
+          <span class="login-option-icon" aria-hidden="true">👩‍🏫</span>
+          <span>
+            <strong>Teacher Login</strong>
+            <small>Create and manage student tasks</small>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+</template>
 
   <script type="module" src="js/app.js"></script>
 </body>
