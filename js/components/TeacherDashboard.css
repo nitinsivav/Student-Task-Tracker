@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.teacher-dashboard {
+  width: min(100% - 32px, 900px);
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.dashboard-header {
+  padding: 32px;
+  border-radius: 18px;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.dashboard-brand {
+  margin: 0 0 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.dashboard-header > p:last-child {
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+.empty-state {
+  margin-top: 24px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin-top: 0;
+}
+
+.empty-state p {
+  margin-bottom: 0;
+  color: #6b7280;
+}

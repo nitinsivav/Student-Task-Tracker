@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskTrack | Student Tasks</title>
   <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/app.js"></script>
+
 </head>
 <body>
 
@@ -42,6 +44,101 @@
   </section>
 </template>
 
-  <script type="module" src="js/app.js"></script>
+<template id="student-sign-in-template">
+  <section class="auth-page" aria-labelledby="student-sign-in-title">
+    <div class="auth-card">
+      <p class="auth-role">Student Portal</p>
+      <h1 id="student-sign-in-title">Student sign in</h1>
+      <p>Enter your details to view your assigned tasks.</p>
+
+      <form class="auth-form">
+        <label for="student-username">Username</label>
+        <input
+          id="student-username"
+          name="username"
+          type="text"
+          autocomplete="username"
+          required
+        >
+
+        <label for="student-password">Password</label>
+        <input
+          id="student-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit">Sign in as student</button>
+      </form>
+      <p class="auth-message" aria-live="polite"></p>
+    </div>
+  </section>
+</template>
+
+<template id="teacher-sign-in-template">
+  <section class="auth-page" aria-labelledby="teacher-sign-in-title">
+    <div class="auth-card">
+      <p class="auth-role">Teacher Portal</p>
+      <h1 id="teacher-sign-in-title">Teacher sign in</h1>
+      <p>Enter your details to manage student tasks.</p>
+
+      <form class="auth-form">
+        <label for="teacher-username">Username</label>
+        <input
+          id="teacher-username"
+          name="username"
+          type="text"
+          autocomplete="username"
+          required
+        >
+
+        <label for="teacher-password">Password</label>
+        <input
+          id="teacher-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit">Sign in as teacher</button>
+      </form>
+      <p class="auth-message" aria-live="polite"></p>
+    </div>
+  </section>
+</template>
+
+<template id="student-dashboard-template">
+  <section class="student-dashboard">
+    <header class="dashboard-header">
+      <p class="dashboard-brand">TaskTrack</p>
+      <h1>Student Dashboard</h1>
+      <p>Welcome. Your assigned tasks will appear here.</p>
+    </header>
+
+    <section class="empty-state">
+      <h2>No tasks yet</h2>
+      <p>Your teacher has not assigned any Aptitude or DSA tasks.</p>
+    </section>
+  </section>
+</template>
+
+<template id="teacher-dashboard-template">
+  <section class="teacher-dashboard">
+    <header class="dashboard-header">
+      <p class="dashboard-brand">TaskTrack</p>
+      <h1>Teacher Dashboard</h1>
+      <p>Create and manage Aptitude and DSA tasks for students.</p>
+    </header>
+
+    <section class="empty-state">
+      <h2>No tasks created yet</h2>
+      <p>Your created tasks will appear here.</p>
+    </section>
+  </section>
+</template>
+
 </body>
 </html>
