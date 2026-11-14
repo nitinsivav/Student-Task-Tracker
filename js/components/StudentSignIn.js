@@ -1,3 +1,5 @@
+import AuthService from "../services/AuthService.js";
+
 export class StudentSignIn extends HTMLElement {
     constructor() {
         super();
@@ -25,7 +27,28 @@ export class StudentSignIn extends HTMLElement {
 
         const form = this.section.querySelector(".auth-form");
 
-        form.addEventListener("submit", (e) =>{e.preventDefault(); });
+        form.addEventListener("submit", async (e) =>{
+            e.preventDefault(); 
+
+            const username = form.elements.username.value;
+            const password = form.elements.password.value;
+            const messageEl = this.section.querySelector(".auth-message");
+            
+            try {
+                const isAuthenticated = await AuthService.auth("student", username, password);
+                if(isAuthenticated) {
+                    messageEl.textContent = "Student Account Verified";
+                    messageEl.dataset.status = "success";
+                    return;
+                }
+                messageEl.textContent = "Invalid username or password";
+                messageEl.dataset.status = "error";
+            } catch (error) {
+                console.error(error);
+                messageEl.textContent = "An error occurred.";
+                messageEl.dataset.status = "error";
+            }
+        });
     }
 }
 

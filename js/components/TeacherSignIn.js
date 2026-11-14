@@ -1,3 +1,5 @@
+import AuthService from "../services/AuthService.js";
+
 export class TeacherSignIn extends HTMLElement {
   constructor() {
     super();
@@ -26,9 +28,34 @@ export class TeacherSignIn extends HTMLElement {
 
     const form = this.section.querySelector(".auth-form");
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-    });
+    form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const username = form.elements.username.value;
+  const password = form.elements.password.value;
+  const message = this.section.querySelector(".auth-message");
+
+  try {
+    const isAuthenticated = await AuthService.auth(
+      "teacher",
+      username,
+      password
+    );
+
+    if (isAuthenticated) {
+      message.textContent = "Teacher credentials verified.";
+      message.dataset.status = "success";
+      return;
+    }
+
+    message.textContent = "Invalid username or password.";
+    message.dataset.status = "error";
+  } catch (error) {
+    message.textContent = "Unable to check credentials. Please try again.";
+    message.dataset.status = "error";
+    console.error(error);
+  }
+});
   }
 }
 
