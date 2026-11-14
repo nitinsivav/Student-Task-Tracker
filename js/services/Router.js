@@ -2,6 +2,7 @@ import "../components/SignIn.js";
 import "../components/StudentSignIn.js";
 import "../components/TeacherSignIn.js";
 import "../components/StudentDashboard.js";
+import "../components/TeacherDashboard.js";
 
 const Router = {
     init: () => {
@@ -43,6 +44,10 @@ const Router = {
 
       case "/sign-in/teacher":
         pageEl = document.createElement("teacher-sign-in");
+
+        pageEl.addEventListener("auth-success", (event) => {
+            Router.go("/teacher/dashboard");
+        });
         break;
 
       case "/sign-in/student":
@@ -54,6 +59,9 @@ const Router = {
         break;
       case "/student/dashboard":
         pageEl = document.createElement("student-dashboard");
+        break;
+      case "/teacher/dashboard":
+        pageEl = document.createElement("teacher-dashboard");
         break;
 
       default:

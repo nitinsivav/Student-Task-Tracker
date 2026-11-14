@@ -29,33 +29,40 @@ export class TeacherSignIn extends HTMLElement {
     const form = this.section.querySelector(".auth-form");
 
     form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+      event.preventDefault();
 
-  const username = form.elements.username.value;
-  const password = form.elements.password.value;
-  const message = this.section.querySelector(".auth-message");
+      const username = form.elements.username.value;
+      const password = form.elements.password.value;
+      const message = this.section.querySelector(".auth-message");
 
-  try {
-    const isAuthenticated = await AuthService.auth(
-      "teacher",
-      username,
-      password
-    );
+      try {
+        const isAuthenticated = await AuthService.auth(
+          "teacher",
+          username,
+          password,
+        );
 
-    if (isAuthenticated) {
-      message.textContent = "Teacher credentials verified.";
-      message.dataset.status = "success";
-      return;
-    }
+        if (isAuthenticated) {
+          message.textContent = "Teacher credentials verified.";
+          message.dataset.status = "success";
+          this.dispatchEvent(
+            new CustomEvent("auth-success", {
+              detail: { role: "teacher" },
+              bubbles: true,
+              composed: true,
+            }),
+          );
+          return;
+        }
 
-    message.textContent = "Invalid username or password.";
-    message.dataset.status = "error";
-  } catch (error) {
-    message.textContent = "Unable to check credentials. Please try again.";
-    message.dataset.status = "error";
-    console.error(error);
-  }
-});
+        message.textContent = "Invalid username or password.";
+        message.dataset.status = "error";
+      } catch (error) {
+        message.textContent = "Unable to check credentials. Please try again.";
+        message.dataset.status = "error";
+        console.error(error);
+      }
+    });
   }
 }
 
