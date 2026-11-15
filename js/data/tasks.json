@@ -1,0 +1,47 @@
+[
+  {
+    "id": "task-1",
+    "title": "Two Sum",
+    "category": "dsa",
+    "description": "Practice using a hash map to find the required pair.",
+    "link": "https://leetcode.com/problems/two-sum/",
+    "assignedDate": "2026-11-15",
+    "status": "not-done"
+  },
+  {
+    "id": "task-2",
+    "title": "Percentages",
+    "category": "aptitude",
+    "description": "Review percentage change and solve the assigned practice set.",
+    "link": "https://www.indiabix.com/aptitude/percentage/",
+    "assignedDate": "2026-11-15",
+    "status": "completed"
+  },
+  {
+    "id": "task-3",
+    "title": "Binary Search",
+    "category": "dsa",
+    "description": "Review the basic search pattern and solve one question.",
+    "link": "https://leetcode.com/tag/binary-search/",
+    "assignedDate": "2026-11-14",
+    "status": "not-done"
+  },
+  {
+    "id": "task-4",
+    "title": "Arrays revision",
+    "category": "dsa",
+    "description": "Revisit two-pointer techniques and complete the practice task.",
+    "link": "https://leetcode.com/tag/array/",
+    "assignedDate": "2026-11-14",
+    "status": "in-progress"
+  },
+  {
+    "id": "task-5",
+    "title": "Time and Work",
+    "category": "aptitude",
+    "description": "Complete the assigned set of practice questions.",
+    "link": "https://www.indiabix.com/aptitude/time-and-work/",
+    "assignedDate": "2026-11-13",
+    "status": "not-done"
+  }
+]

@@ -3,87 +3,116 @@
   min-height: 100vh;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .sign-in-page {
   display: grid;
   min-height: 100vh;
   place-items: center;
-  padding: 24px;
-  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+  padding: 32px 20px;
+  background: #e6ded0;
 }
 
 .sign-in-card {
   width: min(100%, 440px);
-  padding: 40px;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 20px 45px rgba(31, 41, 55, 0.12);
+  padding: 36px;
+  border: 1px solid #b9c4ae;
+  border-radius: 12px;
+  background: #f6f1e6;
+  box-shadow: 0 8px 18px rgba(40, 52, 40, 0.12);
+  animation: page-enter 300ms ease-out both;
 }
 
 .brand-name {
-  margin: 0 0 24px;
-  color: #4f46e5;
-  font-size: 1.1rem;
+  margin: 0 0 22px;
+  color: #315a72;
+  font-size: 0.9rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
-  color: #111827;
+  color: #202820;
   font-size: 2rem;
+  line-height: 1.2;
 }
 
 .sign-in-description {
   margin: 12px 0 28px;
-  color: #6b7280;
-  line-height: 1.5;
+  color: #586356;
+  line-height: 1.55;
 }
 
 .login-options {
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .login-option {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   width: 100%;
-  padding: 18px;
-  border: 1px solid #dbe3f0;
-  border-radius: 14px;
-  background-color: #ffffff;
-  color: #1f2937;
-  cursor: pointer;
+  padding: 16px;
+  border: 1px solid #cbd3c1;
+  border-radius: 10px;
+  background: #fbfaf4;
+  color: #202820;
   text-align: left;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: background-color 160ms ease, border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .login-option:hover {
-  border-color: #4f46e5;
-  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.15);
+  border-color: #536b51;
+  background: #eef1e6;
   transform: translateY(-2px);
 }
 
 .login-option:focus-visible {
-  outline: 3px solid #a5b4fc;
-  outline-offset: 3px;
+  outline: 3px solid #7e9db1;
+  outline-offset: 2px;
 }
 
 .login-option-icon {
   display: grid;
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  border-radius: 12px;
-  background-color: #eef2ff;
-  font-size: 1.5rem;
+  border-radius: 8px;
+  background: #dce5d4;
+  font-size: 1.3rem;
 }
 
 .login-option strong,
 .login-option small {
   display: block;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sign-in-card,
+  .login-option {
+    animation: none;
+    transition: none;
+  }
 }
 
 .login-option strong {
@@ -92,13 +121,13 @@ h1 {
 }
 
 .login-option small {
-  color: #6b7280;
-  line-height: 1.35;
+  color: #657064;
+  line-height: 1.4;
 }
 
 @media (max-width: 480px) {
   .sign-in-page {
-    padding: 16px;
+    padding: 20px 16px;
   }
 
   .sign-in-card {

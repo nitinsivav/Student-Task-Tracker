@@ -113,15 +113,64 @@
 <template id="student-dashboard-template">
   <section class="student-dashboard">
     <header class="dashboard-header">
-      <p class="dashboard-brand">TaskTrack</p>
-      <h1>Student Dashboard</h1>
-      <p>Welcome. Your assigned tasks will appear here.</p>
+      <div>
+        <p class="dashboard-brand">TaskTrack · Student space</p>
+        <h1>Student Dashboard</h1>
+        <p class="dashboard-intro">
+          Keep today’s practice clear, focused, and moving forward.
+        </p>
+      </div>
+
+      <p class="dashboard-note">Today’s tasks</p>
     </header>
 
-    <section class="empty-state">
-      <h2>No tasks yet</h2>
-      <p>Your teacher has not assigned any Aptitude or DSA tasks.</p>
+    <section class="today-section" aria-labelledby="today-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Today</p>
+          <h2 id="today-title">Your focus for today</h2>
+        </div>
+        <p class="task-count">2 tasks</p>
+      </div>
+
+      <div class="today-task-list">
+        <article class="today-task">
+          <div class="task-copy">
+            <p class="task-category task-category--dsa">DSA</p>
+            <h3>Two Sum</h3>
+            <p>Practice using a hash map to find the required pair.</p>
+          </div>
+
+          <a
+            class="task-link"
+            href="https://leetcode.com/problems/two-sum/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open task
+          </a>
+        </article>
+
+        <article class="today-task">
+          <div class="task-copy">
+            <p class="task-category task-category--aptitude">Aptitude</p>
+            <h3>Percentages</h3>
+            <p>Review percentage change and solve the assigned practice set.</p>
+          </div>
+
+          <a
+            class="task-link"
+            href="https://www.indiabix.com/aptitude/percentage/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open task
+          </a>
+        </article>
+      </div>
     </section>
+    <student-kanban></student-kanban>
+    <student-history></student-history>
   </section>
 </template>
 
@@ -137,6 +186,151 @@
       <h2>No tasks created yet</h2>
       <p>Your created tasks will appear here.</p>
     </section>
+  </section>
+</template>
+
+<template id="student-kanban-template">
+  <section class="kanban-section" aria-labelledby="kanban-title">
+    <div class="kanban-heading">
+      <div>
+        <p class="section-label">Progress board</p>
+        <h2 id="kanban-title">Your practice board</h2>
+      </div>
+      <p class="kanban-help">Move tasks as you work through them.</p>
+    </div>
+
+    <div class="kanban-board">
+      <section class="kanban-column" aria-labelledby="not-done-title">
+        <header class="column-header">
+          <h3 id="not-done-title">Not done</h3>
+          <span>2</span>
+        </header>
+
+        <div class="kanban-card-list">
+          <article class="kanban-card">
+            <p class="task-type task-type--dsa">DSA</p>
+            <h4>Binary Search</h4>
+            <p>Review the basic search pattern and solve one question.</p>
+          </article>
+
+          <article class="kanban-card">
+            <p class="task-type task-type--aptitude">Aptitude</p>
+            <h4>Time and Work</h4>
+            <p>Complete the assigned set of practice questions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="kanban-column" aria-labelledby="in-progress-title">
+        <header class="column-header">
+          <h3 id="in-progress-title">In progress</h3>
+          <span>1</span>
+        </header>
+
+        <div class="kanban-card-list">
+          <article class="kanban-card">
+            <p class="task-type task-type--dsa">DSA</p>
+            <h4>Arrays revision</h4>
+            <p>Revisit two-pointer techniques and complete the practice task.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="kanban-column" aria-labelledby="completed-title">
+        <header class="column-header">
+          <h3 id="completed-title">Completed</h3>
+          <span>1</span>
+        </header>
+
+        <div class="kanban-card-list">
+          <article class="kanban-card">
+            <p class="task-type task-type--aptitude">Aptitude</p>
+            <h4>Percentages</h4>
+            <p>Finished the notes and submitted the practice set.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </section>
+</template>
+
+<template id="student-history-template">
+  <section class="history-section" aria-labelledby="history-title">
+    <div class="history-heading">
+      <div>
+        <p class="section-label">Task history</p>
+        <h2 id="history-title">Previous practice</h2>
+      </div>
+      <p>Grouped by assigned date</p>
+    </div>
+
+    <div class="history-groups">
+      <section class="history-group" aria-labelledby="may-14-title">
+        <header class="history-date">
+          <h3 id="may-14-title">May 14</h3>
+          <p>2 tasks</p>
+        </header>
+
+        <div class="history-cards">
+          <article class="history-card">
+            <div>
+              <p class="task-type task-type--dsa">DSA · Completed</p>
+              <h4>Valid Parentheses</h4>
+              <p>Stack-based practice question.</p>
+            </div>
+
+            <a
+              href="https://leetcode.com/problems/valid-parentheses/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open
+            </a>
+          </article>
+
+          <article class="history-card">
+            <div>
+              <p class="task-type task-type--aptitude">Aptitude · Completed</p>
+              <h4>Profit and Loss</h4>
+              <p>Completed the assigned practice questions.</p>
+            </div>
+
+            <a
+              href="https://www.indiabix.com/aptitude/profit-and-loss/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="history-group" aria-labelledby="may-13-title">
+        <header class="history-date">
+          <h3 id="may-13-title">May 13</h3>
+          <p>1 task</p>
+        </header>
+
+        <div class="history-cards">
+          <article class="history-card">
+            <div>
+              <p class="task-type task-type--dsa">DSA · In progress</p>
+              <h4>Merge Sorted Array</h4>
+              <p>Practice the two-pointer approach.</p>
+            </div>
+
+            <a
+              href="https://leetcode.com/problems/merge-sorted-array/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open
+            </a>
+          </article>
+        </div>
+      </section>
+    </div>
   </section>
 </template>
 

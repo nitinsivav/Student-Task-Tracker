@@ -1,3 +1,6 @@
+import "./StudentKanban.js";
+import "./StudentHistory.js";
+
 export class StudentDashboard extends HTMLElement {
     constructor(){
         super();

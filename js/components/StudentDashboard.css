@@ -1,53 +1,235 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: #f5f7fb;
-  color: #1f2937;
+  background: #e6ded0;
+  color: #202820;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .student-dashboard {
-  width: min(100% - 32px, 900px);
+  width: min(100% - 32px, 960px);
   margin: 0 auto;
-  padding: 48px 0;
+  padding: 40px 0 56px;
 }
 
 .dashboard-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
   padding: 32px;
-  border-radius: 18px;
-  background: #4f46e5;
-  color: #ffffff;
+  border: 1px solid #315a72;
+  border-radius: 12px;
+  background: #315a72;
+  color: #fffdf7;
+  animation: page-enter 300ms ease-out both;
 }
 
 .dashboard-brand {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
+  color: #dce5d4;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-.dashboard-header > p:last-child {
-  margin-bottom: 0;
-  opacity: 0.9;
-}
-
-.empty-state {
-  margin-top: 24px;
-  padding: 32px;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.empty-state h2 {
+h1,
+h2,
+h3,
+p {
   margin-top: 0;
 }
 
-.empty-state p {
+h1 {
   margin-bottom: 0;
-  color: #6b7280;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.dashboard-intro {
+  max-width: 520px;
+  margin: 12px 0 0;
+  color: #eef4f3;
+  line-height: 1.5;
+}
+
+.dashboard-note {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #dce5d4;
+  border-radius: 6px;
+  color: #fffdf7;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.today-section {
+  margin-top: 20px;
+  padding: 30px 32px;
+  border: 1px solid #c8d0c0;
+  border-radius: 12px;
+  background: #f6f1e6;
+  animation: page-enter 360ms ease-out both;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #c8d0c0;
+}
+
+.section-label {
+  margin-bottom: 7px;
+  color: #315a72;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: #2f4a3c;
+  font-size: 1.35rem;
+}
+
+.task-count {
+  margin: 0;
+  color: #586356;
+  font-size: 0.9rem;
+}
+
+.today-task-list {
+  display: grid;
+}
+
+.today-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+}
+
+.today-task + .today-task {
+  border-top: 1px solid #d5dacd;
+}
+
+.task-copy {
+  min-width: 0;
+}
+
+.task-category {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.task-category--dsa {
+  background: #d7e3e6;
+  color: #315a72;
+}
+
+.task-category--aptitude {
+  background: #ead4d1;
+  color: #8b4949;
+}
+
+h3 {
+  margin-bottom: 6px;
+  color: #202820;
+  font-size: 1.05rem;
+}
+
+.task-copy > p:last-child {
+  margin-bottom: 0;
+  color: #586356;
+  line-height: 1.5;
+}
+
+.task-link {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border: 1px solid #2f4a3c;
+  border-radius: 7px;
+  background: #2f4a3c;
+  color: #fffdf7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.task-link:hover {
+  background: #3c604d;
+  transform: translateY(-1px);
+}
+
+.task-link:focus-visible {
+  outline: 3px solid #7e9db1;
+  outline-offset: 2px;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-header,
+  .today-section,
+  .task-link {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .student-dashboard {
+    width: min(100% - 24px, 960px);
+    padding: 24px 0 40px;
+  }
+
+  .dashboard-header,
+  .today-section {
+    padding: 24px;
+  }
+
+  .dashboard-header,
+  .section-heading,
+  .today-task {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-note {
+    white-space: normal;
+  }
+
+  .task-link {
+    width: 100%;
+    text-align: center;
+  }
 }
