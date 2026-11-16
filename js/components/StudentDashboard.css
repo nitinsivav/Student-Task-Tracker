@@ -233,3 +233,9 @@ h3 {
     text-align: center;
   }
 }
+
+.today-empty {
+  margin: 22px 0 0;
+  color: #a64747;
+  line-height: 1.5;
+}

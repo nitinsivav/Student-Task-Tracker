@@ -141,6 +141,38 @@ h2 {
   line-height: 1.45;
 }
 
+.status-control {
+  display: grid;
+  gap: 6px;
+  margin-top: 16px;
+  color: #354234;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.task-status {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #b9c4ae;
+  border-radius: 6px;
+  background: #fffdf7;
+  color: #202820;
+}
+
+.task-status:focus {
+  border-color: #315a72;
+  outline: 2px solid #b6cbd8;
+  outline-offset: 1px;
+}
+
+
+.kanban-empty {
+  margin: 0;
+  color: #586356;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 @keyframes page-enter {
   from {
     opacity: 0;
